@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
 	"appName": "508fixes",
-	"webDir": "www",
+	"webDir": "src",
 	"bundledWebRuntime": false
 }

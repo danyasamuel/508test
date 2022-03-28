@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>508 Error testing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="title-container">
+      <h1>508 form validation testing</h1>
+    </div>
+   
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+      <h2>Using Ionic components</h2>
+      <ion-item lines="inset">
+        <ion-label type="text" class="floating-label" position="floating">
+          First Name <span class="asterisk">*</span>
+        </ion-label>
+        <ion-input formControlName="firstnameionic"
+                   maxlength="15"
+                   aria-required="true"
+                   aria-describedby="firstnameionicerror"
+                   id="firstNameControl"
+                   style="width:100%">
+        </ion-input>
+        <!-- Error messages -->
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstnameionic.errors?.required" id="firstnameionicerror">
+          Name is required.
+        </span>
+      </ion-item>
+      <h2>Using standard HTML components</h2>    
+      <label for="firstnamehtml">First Name <span class="asterisk">*</span></label><br>
+      <input type="text" 
+              maxlength="15" 
+              aria-required="true" 
+              aria-describedby="firstnamehtmlerror"
+              id="firstnamehtml" 
+              name="firstnamehtml">
+       <!-- Error messages -->
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstnamehtml.errors?.required" id="firstnamehtmlerror">
+        Name is required.
+      </span>
+      <div style="padding:10px;">
+        <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
